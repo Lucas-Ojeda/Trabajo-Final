@@ -25,7 +25,9 @@ public class Pilotos extends Persona implements Serializable {
     }
 
     public void setEstrellas(int estrellas) {
-        this.estrellas = estrellas;
+        if(estrellas>0 && estrellas<6){
+            this.estrellas = estrellas;
+        }else{System.out.println("Debe ingresar un numero entre 1 y 5. ");}
     }
 
     public int getAñosExperiencia() {
@@ -40,9 +42,35 @@ public class Pilotos extends Persona implements Serializable {
         return estrellas;
     }
 
+    public String imprimirEstrellas(int estrellas){
+        estrellas = this.estrellas;
+        String stars="";
+
+        switch(estrellas){
+            case 1:
+                stars="⭐";
+                break;
+            case 2:
+                stars="⭐⭐";
+                break;
+            case 3:
+                stars="⭐⭐⭐";
+                break;
+            case 4:
+                stars="⭐⭐⭐⭐";
+                break;
+            case 5:
+                stars="⭐⭐⭐⭐⭐";
+                break;
+            default: System.out.println("ERROR");
+
+        }
+        return stars;
+    }
+
     @Override
     public String toString() {
-        return "Piloto: "+ "\n" +getNombre()+" "+getApellido()+", DNI: "+getDni()+", años de experiencia: "+añosExperiencia
-                +", sueldo:"+sueldo+", estrellas: "+ estrellas;
+        return "Piloto: "+ "\n" +getNombre()+" "+getApellido()+", DNI: "+getDni()+", Años de experiencia: "+añosExperiencia
+                +", Sueldo: $"+sueldo+", Estrellas: "+ imprimirEstrellas(estrellas);
     }
 }

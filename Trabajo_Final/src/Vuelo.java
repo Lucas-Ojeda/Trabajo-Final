@@ -42,6 +42,10 @@ public class Vuelo implements Serializable {
 
     @Override
     public String toString() {
-        return "Vuelo: "+"id: "+id+", ciudad de despegue: "+ciudadDespegue+", ciudad de llegada: "+ciudadLlegada;
+        return "Vuelo: "+"\nID: "+id+"\nCiudad de despegue: "+ciudadDespegue+"\nCiudad de llegada: "+ciudadLlegada;
     }
+
+    //Agregar Avion
+    //Modificar Avion
+
 }

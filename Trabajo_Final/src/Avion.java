@@ -8,6 +8,7 @@ public class Avion implements Serializable {
     private String nombre;
     private int id;
     private int capacidad;
+    private String horarioSalida = "";
 
     private Pilotos p1=new Pilotos();
     private Pilotos p2=new Pilotos();
@@ -31,6 +32,10 @@ public class Avion implements Serializable {
     public void setCapacidad(int capacidad) {
         this.capacidad = capacidad;
     }
+    
+    public void setHorarioSalida(String horarioSalida) {
+        this.horarioSalida = horarioSalida;
+    }
 
     public String getNombre() {
         return nombre;
@@ -44,8 +49,25 @@ public class Avion implements Serializable {
         return capacidad;
     }
 
+    public String getHorarioSalida() {
+        return horarioSalida;
+    }
+
     @Override
     public String toString() {
         return "Avion: "+"nombre: "+nombre+", id: "+id+", capacidad: "+capacidad+", 1°"+p1.toString()+", 2°"+p2.toString();
     }
+
+    //Agregar Pasajeros
+    //Eliminar Pasajeros
+    //Modificar Pasajeros
+
+    //Calcular cantidad de Asafatas
+    //Agregar Asafatas
+    //Elimiar Asafatas
+    //Modificar Asafatas
+
+    //Elegir Pilotos
+    //
+
 }
