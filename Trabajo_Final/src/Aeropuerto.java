@@ -1,13 +1,14 @@
 import javax.swing.JOptionPane;
-/*import java.io.FileInputStream;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;*/
+import java.io.ObjectOutputStream;
+import java.io.ObjectInputStream;
 import java.util.LinkedList;
 import java.util.List;
 
 public class Aeropuerto implements Informacion {
-    List<Vuelo> listVuelo=new LinkedList<>();
+    static List<Vuelo> listVuelo=new LinkedList<>();
 
     public static void main(String[] args) {
         Aeropuerto aero=new Aeropuerto();
@@ -16,6 +17,17 @@ public class Aeropuerto implements Informacion {
         int idvuelo;
         String ciudadDespeje;
         String ciudadLlegada;
+        //variables y demas arriba de esta linea
+        //Flujo de datos al interior
+        try{
+            ObjectInputStream recuperando_fichero=new ObjectInputStream(new FileInputStream("Datos.txt"));
+            listVuelo=(List<Vuelo>) recuperando_fichero.readObject();
+            recuperando_fichero.close();
+
+        }catch (Exception e){
+            System.out.println("Error de lectura de Datos");
+        }
+        //menu abajo de esta linea
         
         JOptionPane.showMessageDialog(null, "Bienvenido al aeropuerto", "Aeropuerto", JOptionPane.INFORMATION_MESSAGE);
         while(opcion!=4){
@@ -53,16 +65,8 @@ public class Aeropuerto implements Informacion {
         
         
         
-        /*List<Vuelo> listVuelo=new LinkedList<>();
-        //Flujo de datos al interior
-        try{
-            ObjectInputStream recuperando_fichero=new ObjectInputStream(new FileInputStream("Datos.txt"));
-            listVuelo=(List<Vuelo>) recuperando_fichero.readObject();
-            recuperando_fichero.close();
 
-        }catch (Exception e){
-            System.out.println("Error de lectura de Datos");
-        }
+        //pone tu codigo arriba de esto
         //flujo de datos al exterior
         try{
             ObjectOutputStream escribiendo_fichero=new ObjectOutputStream(new FileOutputStream("Datos.txt"));
@@ -71,17 +75,6 @@ public class Aeropuerto implements Informacion {
         }catch (Exception e){
             System.out.println("Error de carga de Datos");
         }
-
-    }
-
-    public static void eliminarVuelos(int id, List<Vuelo> vuelo){
-        for(int i=0;i< vuelo.size();i++){
-            if(vuelo.get(i).getId()==id){
-                vuelo.get(i).liberarPiloto(id);
-                vuelo.remove(i);
-            }break;
-        }*/
-
     }
 
     //agregar un vuelo
