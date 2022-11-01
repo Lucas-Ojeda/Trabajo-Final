@@ -42,11 +42,20 @@ public class Vuelo implements Serializable {
 
     @Override
     public String toString() {
-        return "Vuelo: "+"\nID: "+id+"\nCiudad de despegue: "+ciudadDespegue+"\nCiudad de llegada: "+ciudadLlegada;
+        return "ID del vuelo: "+id+"\nCiudad de despegue: "+ciudadDespegue+"\nCiudad de llegada: "+ciudadLlegada;
     }
 
-    //Agregar Avion
-    //Modificar Avion
+    public void agregarAvion(Avion avion){
+        listAviones.add(avion);
+    }
+
+    public void modificarAvion(Avion avion){
+        for (int i = 0; i < listAviones.size(); i++) {
+            if(listAviones.get(i).getId()==avion.getId()){
+                listAviones.set(i, avion);
+            }
+        }
+    }
     
 
 }

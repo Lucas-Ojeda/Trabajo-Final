@@ -4,6 +4,7 @@ public class Pilotos extends Persona implements Serializable {
     private int añosExperiencia;
     private double sueldo;
     private int estrellas;
+    private int idPiloto;
 
     public Pilotos(){}
 
@@ -24,6 +25,10 @@ public class Pilotos extends Persona implements Serializable {
         this.sueldo = sueldo;
     }
 
+    public void setID(int id) {
+        this.idPiloto = id;
+    }
+
     public void setEstrellas(int estrellas) {
         if(estrellas>0 && estrellas<6){
             this.estrellas = estrellas;
@@ -32,6 +37,10 @@ public class Pilotos extends Persona implements Serializable {
 
     public int getAñosExperiencia() {
         return añosExperiencia;
+    }
+
+    public int getID() {
+        return idPiloto;
     }
 
     public double getSueldo() {
@@ -70,7 +79,7 @@ public class Pilotos extends Persona implements Serializable {
 
     @Override
     public String toString() {
-        return "Piloto: "+ "\n" +getNombre()+" "+getApellido()+", DNI: "+getDni()+", Años de experiencia: "+añosExperiencia
+        return "\n\t" +getNombre()+" "+getApellido()+", DNI: "+getDni()+", Años de experiencia: "+añosExperiencia
                 +", Sueldo: $"+sueldo+", Estrellas: "+ imprimirEstrellas(estrellas);
     }
 }

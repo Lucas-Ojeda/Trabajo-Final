@@ -3,16 +3,22 @@ import javax.swing.JOptionPane;
 public class Aeropuerto {
     public static void main(String[] args) {
 
-        Pilotos p1 =new Pilotos();
+        Vuelo vuelo1 =new Vuelo("Buenos Aires","Miami",456 );
+        Pilotos p1 =new Pilotos("Juan", "Martinez", 41477156, 5, 10000, 5);
+        Pilotos p2 =new Pilotos("Lucas", "Ojeda", 54612345, 10, 15000, 4);
+        Avion avion1 =new Avion("Boeing 747", 1, 500, p1, p2);
+        Asafatas asafatas1 =new Asafatas("Maria", "Gomez", 45678912, 3, 5000);
+        Pasajeros pasajeros1 =new Pasajeros("Juan", "Perez", 45678912, 41);
 
-        p1.setNombre("Juan");
-        p1.setApellido("Martinez");
-        p1.setDni(41477156);
-        p1.setAñosExperiencia(10);
-        p1.setEstrellas(3);
-        p1.setSueldo(1000000);
+        vuelo1.setCiudadDespegue("Buenos Aires");
+        vuelo1.setCiudadLlegada("Miami");
+        vuelo1.agregarAvion(avion1);
 
-        JOptionPane.showMessageDialog(null, p1.toString());
+        avion1.agregarAsafata(asafatas1);
+        avion1.agregarPasajero(pasajeros1);
+
+        JOptionPane.showMessageDialog(null, vuelo1.toString());
+        JOptionPane.showMessageDialog(null, avion1.toString());
 
     }
 }

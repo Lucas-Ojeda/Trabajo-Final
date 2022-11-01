@@ -22,6 +22,6 @@ public class Pasajeros extends Persona implements Serializable {
 
     @Override
     public String toString() {
-        return "Pasajero: "+getNombre()+" "+getApellido()+", DNI: "+getDni()+", asiento: " + asiento;
+        return "Pasajero: "+getNombre()+" "+getApellido()+"\nDNI: "+getDni()+"\nAsiento: " + asiento;
     }
 }
