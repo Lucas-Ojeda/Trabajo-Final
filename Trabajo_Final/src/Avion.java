@@ -45,6 +45,8 @@ public class Avion implements Serializable {
         this.horarioSalida = horarioSalida;
     }
 
+
+
     public String getNombre() {
         return nombre;
     }
@@ -59,6 +61,13 @@ public class Avion implements Serializable {
 
     public String getHorarioSalida() {
         return horarioSalida;
+    }
+
+    public Pilotos getPiloto1(){
+        return p1;
+    }
+    public Pilotos getPiloto2(){
+        return p2;
     }
 
     @Override

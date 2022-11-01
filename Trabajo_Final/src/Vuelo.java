@@ -40,6 +40,18 @@ public class Vuelo implements Serializable {
         return id;
     }
 
+    public void liberarPiloto(int id){
+        int a=0;
+
+        for(int i=0;i<listAviones.size();i++){
+            if(listAviones.get(i).getId()==id){
+                listAviones.get(i).getPiloto1().setID(a);
+                listAviones.get(i).getPiloto2().setID(a);
+            }break;
+        }
+    }
+    //deberiamos hacer que no pueda haber dos id iguales para vuelos;
+
     @Override
     public String toString() {
         return "ID del vuelo: "+id+"\nCiudad de despegue: "+ciudadDespegue+"\nCiudad de llegada: "+ciudadLlegada;
