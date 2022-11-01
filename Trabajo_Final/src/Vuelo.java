@@ -2,6 +2,8 @@ import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
 public class Vuelo implements Serializable {
     List<Avion>listAviones= new LinkedList<Avion>();
     private int id;
@@ -10,7 +12,7 @@ public class Vuelo implements Serializable {
 
     public Vuelo(){}
 
-    public Vuelo (String ciudadDespegue,String ciudadLlegada,int id){
+    public Vuelo (int id,String ciudadDespegue,String ciudadLlegada){
         this.ciudadDespegue=ciudadDespegue;
         this.ciudadLlegada=ciudadLlegada;
         this.id=id;
@@ -69,5 +71,11 @@ public class Vuelo implements Serializable {
         }
     }
     
+    //listar aviones
+    public void listar(){
+        for (int i = 0; i < listAviones.size(); i++) {
+            JOptionPane.showMessageDialog(null, listAviones.get(i).toString());
+        }
+    }
 
 }
