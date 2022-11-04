@@ -4,7 +4,7 @@ public class Pilotos extends Persona implements Serializable {
     private int añosExperiencia;
     private double sueldo;
     private int estrellas;
-    private int idPiloto;
+    private int idPiloto=0;
 
     public Pilotos(){}
 

@@ -9,8 +9,16 @@ public class Vuelo implements Serializable {
     private int id;
     private String ciudadDespegue;
     private String ciudadLlegada;
+    private Avion avionVuelo;
 
     public Vuelo(){}
+
+    public Vuelo(int id,String ciudadDespegue,String ciudadLlegada,Avion avionVuelo){
+        this.id=id;
+        this.ciudadDespegue=ciudadDespegue;
+        this.ciudadLlegada=ciudadLlegada;
+        this.avionVuelo=avionVuelo;
+    }
 
     public Vuelo (int id,String ciudadDespegue,String ciudadLlegada){
         this.ciudadDespegue=ciudadDespegue;
@@ -29,6 +37,10 @@ public class Vuelo implements Serializable {
     public void setId(int id) {
         this.id = id;
     }
+    
+    public void setAvionVuelo(Avion avionVuelo) {
+        this.avionVuelo = avionVuelo;
+    }
 
     public String getCiudadDespegue() {
         return ciudadDespegue;
@@ -36,6 +48,10 @@ public class Vuelo implements Serializable {
 
     public String getCiudadLlegada() {
         return ciudadLlegada;
+    }
+
+    public Avion getAvionVuelo() {
+        return avionVuelo;
     }
 
     public int getId() {
@@ -52,15 +68,28 @@ public class Vuelo implements Serializable {
             }break;
         }
     }
+
+    
+
     //deberiamos hacer que no pueda haber dos id iguales para vuelos;
+
+
 
     @Override
     public String toString() {
         return "ID del vuelo: "+id+"\nCiudad de despegue: "+ciudadDespegue+"\nCiudad de llegada: "+ciudadLlegada;
-    }
+        }
 
     public void agregarAvion(Avion avion){
         listAviones.add(avion);
+    }
+
+    public void eliminarAvion(int id){
+        for(int i=0;i<listAviones.size();i++){
+            if(listAviones.get(i).getId()==id){
+                listAviones.remove(i);
+            }
+        }
     }
 
     public void modificarAvion(Avion avion){
@@ -77,5 +106,15 @@ public class Vuelo implements Serializable {
             JOptionPane.showMessageDialog(null, listAviones.get(i).toString());
         }
     }
+
+    public List<Avion> getListAvion() {
+        return listAviones;
+    }
+
+    public void setListAvion(List<Avion> listAviones) {
+        this.listAviones = listAviones;
+    }
+
+    
 
 }

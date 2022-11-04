@@ -15,13 +15,13 @@ public class Avion implements Serializable {
 
     public Avion(){}
 
-    public Avion(String nombre,int id,int capacidad){
+    public Avion(int id,String nombre,int capacidad){
         this.nombre=nombre;
         this.id=id;
         this.capacidad=capacidad;
     }
 
-    public Avion(String nombre,int id,int capacidad, Pilotos p1, Pilotos p2){
+    public Avion(int id,String nombre,int capacidad, Pilotos p1, Pilotos p2){
         this.nombre=nombre;
         this.id=id;
         this.capacidad=capacidad;
@@ -95,6 +95,40 @@ public class Avion implements Serializable {
                 listPasajeros.set(i, pasajero);
             }
         }
+    }
+
+    
+
+    public List<Pasajeros> getListPasajero() {
+        return listPasajeros;
+    }
+
+    public void setListPasajero(List<Pasajeros> listPasajeros) {
+        this.listPasajeros = listPasajeros;
+    }
+
+    public List<Asafatas> getListAsafata() {
+        return listAsafatas;
+    }
+
+    public void setListAsafata(List<Asafatas> listAsafatas) {
+        this.listAsafatas = listAsafatas;
+    }
+
+    public Pilotos getP1() {
+        return p1;
+    }
+
+    public void setP1(Pilotos p1) {
+        this.p1 = p1;
+    }
+
+    public Pilotos getP2() {
+        return p2;
+    }
+
+    public void setP2(Pilotos p2) {
+        this.p2 = p2;
     }
 
     public int calcularAsafatas(){
