@@ -87,6 +87,7 @@ public class Vuelo implements Serializable {
     public void eliminarAvion(int id){
         for(int i=0;i<listAviones.size();i++){
             if(listAviones.get(i).getId()==id){
+                
                 listAviones.remove(i);
             }
         }

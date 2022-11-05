@@ -1,4 +1,6 @@
 import javax.swing.JOptionPane;
+import javax.swing.text.AbstractDocument.BranchElement;
+
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
@@ -9,7 +11,6 @@ import java.util.List;
 
 public class Aeropuerto implements Informacion {
     static List<Vuelo> listVuelo=new LinkedList<>();
-    static List<Avion> listAvion=new LinkedList<>();
 
     public static void main(String[] args) {
         Aeropuerto aero=new Aeropuerto();
@@ -24,7 +25,8 @@ public class Aeropuerto implements Informacion {
         int capacidadAvion;
         Pilotos p1;
         Pilotos p2;
-        
+
+        List<Pilotos> listPilotos=new LinkedList<Pilotos>();        
 
         Pilotos piloto1 = new Pilotos("Juan","Martinez",41477156,5,10000,5);
         Pilotos piloto2 = new Pilotos("Lucas","Ojeda",42156651,5,10000,5);
@@ -33,6 +35,12 @@ public class Aeropuerto implements Informacion {
         Pilotos piloto5 = new Pilotos("Jose","Gonzalez",44444444,7,6000,2);
         Pilotos piloto6 = new Pilotos("Luis","Rodriguez",55555555,2,7500,4);
 
+        listPilotos.add(piloto1);
+        listPilotos.add(piloto2);
+        listPilotos.add(piloto3);
+        listPilotos.add(piloto4);
+        listPilotos.add(piloto5);
+        listPilotos.add(piloto6);
         //variables y demas arriba de esta linea
         //Flujo de datos al interior
         try{
@@ -44,8 +52,8 @@ public class Aeropuerto implements Informacion {
             System.out.println("Error de lectura de Datos");
         }
         //menu abajo de esta linea
-        
-        JOptionPane.showMessageDialog(null, "Bienvenido al Aeropuerto", "Aeropuerto", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null, "Bienvenido al Aeropuerto");
+
         do{
             opcion= JOptionPane.showOptionDialog(null, "Seleccione una opcion", "Aeropuerto", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, new Object[] {"Vuelos", "Aviones","Personal", "Salir"}, "Vuelos");
             switch(opcion){
@@ -95,19 +103,22 @@ public class Aeropuerto implements Informacion {
                                         idAvion=Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese el ID del avion", "Crear Avion", JOptionPane.QUESTION_MESSAGE));
                                         nombreAvion=JOptionPane.showInputDialog(null, "Ingrese el nombre del avion", "Crear Avion", JOptionPane.QUESTION_MESSAGE);
                                         capacidadAvion=Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese la capacidad del avion", "Crear Avion", JOptionPane.QUESTION_MESSAGE));
-                                        p1 = (Pilotos) JOptionPane.showInputDialog(null, "Seleccione el primer piloto", "Crear Avion", JOptionPane.QUESTION_MESSAGE, null, new Object[] {piloto1, piloto2, piloto3, piloto4, piloto5, piloto6}, piloto1);
+                                        p1 = (Pilotos) JOptionPane.showInputDialog(null, "Seleccione el primer piloto", "Crear Avion", JOptionPane.QUESTION_MESSAGE, null, listPilotos.toArray(), null);
                                         p1.setID(idvuelo);
-                                        p2 = (Pilotos) JOptionPane.showInputDialog(null, "Seleccione el segundo piloto", "Crear Avion", JOptionPane.QUESTION_MESSAGE, null, new Object[] {piloto1, piloto2, piloto3, piloto4, piloto5, piloto6}, piloto2);
+                                        listPilotos.remove(p1);
+                                        p2 = (Pilotos) JOptionPane.showInputDialog(null, "Seleccione el segundo piloto", "Crear Avion", JOptionPane.QUESTION_MESSAGE, null, listPilotos.toArray(), null);
                                         p2.setID(idvuelo);
                                         listVuelo.get(i).agregarAvion(new Avion(idAvion, nombreAvion, capacidadAvion, p1,p2));
                                     }
                                 }
                                 break;
                             case 1:
+                                //eliminar avion
                                 idvuelo=Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese el ID del vuelo", "Eliminar Avion", JOptionPane.QUESTION_MESSAGE));
                                 for(int i=0;i<listVuelo.size();i++){
                                     if(listVuelo.get(i).getId()==idvuelo){
-                                        listVuelo.get(i).eliminarAvion(idvuelo);
+                                        idAvion=Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese el ID del avion", "Eliminar Avion", JOptionPane.QUESTION_MESSAGE));
+                                        listVuelo.get(i).eliminarAvion(idAvion);
                                     }
                                 }
                                 break;
@@ -147,6 +158,7 @@ public class Aeropuerto implements Informacion {
                                 break;
                         }
                     }while(opcionPersonal!=5);
+                    break;
                 case 3:
                     JOptionPane.showMessageDialog(null, "Gracias por usar el programa", "Aeropuerto", JOptionPane.INFORMATION_MESSAGE);
                     opcion = 4;
