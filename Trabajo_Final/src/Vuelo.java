@@ -9,7 +9,7 @@ public class Vuelo implements Serializable {
     private int id;
     private String ciudadDespegue;
     private String ciudadLlegada;
-    private Avion avionVuelo;
+    private Avion avion;
 
     public Vuelo(){}
 
@@ -17,7 +17,7 @@ public class Vuelo implements Serializable {
         this.id=id;
         this.ciudadDespegue=ciudadDespegue;
         this.ciudadLlegada=ciudadLlegada;
-        this.avionVuelo=avionVuelo;
+        this.avion=avionVuelo;
     }
 
     public Vuelo (int id,String ciudadDespegue,String ciudadLlegada){
@@ -39,7 +39,7 @@ public class Vuelo implements Serializable {
     }
     
     public void setAvionVuelo(Avion avionVuelo) {
-        this.avionVuelo = avionVuelo;
+        this.avion = avionVuelo;
     }
 
     public String getCiudadDespegue() {
@@ -50,8 +50,8 @@ public class Vuelo implements Serializable {
         return ciudadLlegada;
     }
 
-    public Avion getAvionVuelo() {
-        return avionVuelo;
+    public Avion getAvion() {
+        return avion;
     }
 
     public int getId() {

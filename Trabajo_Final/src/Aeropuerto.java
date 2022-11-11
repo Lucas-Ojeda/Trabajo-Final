@@ -13,7 +13,6 @@ public class Aeropuerto implements Informacion {
     static List<Vuelo> listVuelo=new LinkedList<>();
 
     public static void main(String[] args) {
-        Aeropuerto aero=new Aeropuerto();
         int opcion= 0, opcionVuelo=0, opcionAvion=0, opcionPersonal=0;
 
         int idvuelo;
@@ -25,15 +24,23 @@ public class Aeropuerto implements Informacion {
         int capacidadAvion;
         Pilotos p1;
         Pilotos p2;
+        Asafatas a1;
 
         List<Pilotos> listPilotos=new LinkedList<Pilotos>();        
 
+        String nombrePiloto;
+        String apellidoPiloto;
+        int dniPiloto;
+        int expPiloto;
+        double sueldoPiloto;
+        int starsPiloto;
+
         Pilotos piloto1 = new Pilotos("Juan","Martinez",41477156,5,10000,5);
         Pilotos piloto2 = new Pilotos("Lucas","Ojeda",42156651,5,10000,5);
-        Pilotos piloto3 = new Pilotos("Pedro","Gomez",22222222,3,5000,3);
-        Pilotos piloto4 = new Pilotos("Maria","Perez",33333333,3,5000,3);
-        Pilotos piloto5 = new Pilotos("Jose","Gonzalez",44444444,7,6000,2);
-        Pilotos piloto6 = new Pilotos("Luis","Rodriguez",55555555,2,7500,4);
+        Pilotos piloto3 = new Pilotos("Pedro","Gomez",36598114,3,5000,3);
+        Pilotos piloto4 = new Pilotos("Maria","Perez",38472154,3,5000,3);
+        Pilotos piloto5 = new Pilotos("Jose","Gonzalez",30556948,7,6000,2);
+        Pilotos piloto6 = new Pilotos("Luis","Rodriguez",42005681,2,7500,4);
 
         listPilotos.add(piloto1);
         listPilotos.add(piloto2);
@@ -41,6 +48,15 @@ public class Aeropuerto implements Informacion {
         listPilotos.add(piloto4);
         listPilotos.add(piloto5);
         listPilotos.add(piloto6);
+
+        List<Asafatas> listAsafatas=new LinkedList<Asafatas>();
+
+        String nombreAsafata;
+        String apellidoAsafata;
+        int dniAsafata;
+        int expAsafata;
+        double sueldoAsafata;
+
         //variables y demas arriba de esta linea
         //Flujo de datos al interior
         try{
@@ -105,11 +121,11 @@ public class Aeropuerto implements Informacion {
                                         capacidadAvion=Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese la capacidad del avion", "Crear Avion", JOptionPane.QUESTION_MESSAGE));
                                         p1 = (Pilotos) JOptionPane.showInputDialog(null, "Seleccione el primer piloto", "Crear Avion", JOptionPane.QUESTION_MESSAGE, null, listPilotos.toArray(), null);
                                         p1.setID(idvuelo);
-                                        listPilotos.remove(p1);
                                         p2 = (Pilotos) JOptionPane.showInputDialog(null, "Seleccione el segundo piloto", "Crear Avion", JOptionPane.QUESTION_MESSAGE, null, listPilotos.toArray(), null);
                                         p2.setID(idvuelo);
                                         listVuelo.get(i).agregarAvion(new Avion(idAvion, nombreAvion, capacidadAvion, p1,p2));
-                                    }
+                                        
+                                      }
                                 }
                                 break;
                             case 1:
@@ -139,21 +155,38 @@ public class Aeropuerto implements Informacion {
                 case 2:
                     //Personal
                     do{
-                        opcionPersonal = JOptionPane.showOptionDialog(null, "Seleccione una opcion", "Personal", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, new Object[] {"Mostrar Pilotos", "Mostrar Asafatas","Crear Pilotos","Crear Asafatas", "Atras"}, "Crear Personal");
+                        opcionPersonal = JOptionPane.showOptionDialog(null, "Seleccione una opcion", "Personal", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, new Object[] {"Crear Pilotos", "Crear Asafatas","Mostrar Pilotos","Mostrar Asafatas", "Atras"}, "Crear Personal");
                         switch(opcionPersonal){
                             case 0:
-                                
+                            //crear pilotos
+                                nombrePiloto=JOptionPane.showInputDialog(null, "Ingrese el nombre del piloto", "Crear Piloto", JOptionPane.QUESTION_MESSAGE);
+                                apellidoPiloto=JOptionPane.showInputDialog(null, "Ingrese el apellido del piloto", "Crear Piloto", JOptionPane.QUESTION_MESSAGE);
+                                dniPiloto=Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese el DNI del piloto", "Crear Piloto", JOptionPane.QUESTION_MESSAGE));
+                                expPiloto=Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese los años de experiencia del piloto", "Crear Piloto", JOptionPane.QUESTION_MESSAGE));
+                                sueldoPiloto=Double.parseDouble(JOptionPane.showInputDialog(null, "Ingrese el sueldo del piloto", "Crear Piloto", JOptionPane.QUESTION_MESSAGE));
+                                starsPiloto=Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese las estrellas del piloto", "Crear Piloto", JOptionPane.QUESTION_MESSAGE));
+                                listPilotos.add(new Pilotos(nombrePiloto,apellidoPiloto,dniPiloto, expPiloto, sueldoPiloto, starsPiloto));
+                            
                                 break;
                             case 1:
-                                
+                            //crear asafatas para un vuelo
+                                nombreAsafata=JOptionPane.showInputDialog(null, "Ingrese el nombre de la asafata", "Crear Asafata", JOptionPane.QUESTION_MESSAGE);
+                                apellidoAsafata=JOptionPane.showInputDialog(null, "Ingrese el apellido de la asafata", "Crear Asafata", JOptionPane.QUESTION_MESSAGE);
+                                dniAsafata=Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese el DNI de la asafata", "Crear Asafata", JOptionPane.QUESTION_MESSAGE));
+                                expAsafata=Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese los años de experiencia de la asafata", "Crear Asafata", JOptionPane.QUESTION_MESSAGE));
+                                sueldoAsafata=Double.parseDouble(JOptionPane.showInputDialog(null, "Ingrese el sueldo de la asafata", "Crear Asafata", JOptionPane.QUESTION_MESSAGE));
+                                listAsafatas.add(new Asafatas(nombreAsafata,apellidoAsafata,dniAsafata, expAsafata, sueldoAsafata));
                                 break;
                             case 2:
-                                
+                            //mostrar pilotos
+                                JOptionPane.showMessageDialog(null, listPilotos.toString());
                                 break;
                             case 3:
-                                
+                            //mostrar asafatas
+                                JOptionPane.showMessageDialog(null, listAsafatas.toString());
                                 break;
                             case 4:
+                            //salir
                                 opcionPersonal=5;
                                 break;
                         }
@@ -167,36 +200,7 @@ public class Aeropuerto implements Informacion {
                     JOptionPane.showMessageDialog(null, "Opcion no valida", "Aeropuerto", JOptionPane.ERROR_MESSAGE);
                     break;
             }
-        }while(opcion!=4);
-        
-        
-        /*switch(opcion){
-                case 0:
-                    aero.listar();
-                    break;
-                case 1:
-                    idvuelo=Integer.parseInt(JOptionPane.showInputDialog("Ingrese el ID del vuelo"));
-                    ciudadDespeje=JOptionPane.showInputDialog("Ingrese la ciudad de despegue");
-                    ciudadLlegada=JOptionPane.showInputDialog("Ingrese la ciudad de llegada");
-                    aero.agregarVuelo(new Vuelo(idvuelo, ciudadDespeje, ciudadLlegada));
-                    break;
-                case 2:
-                    idvuelo=Integer.parseInt(JOptionPane.showInputDialog("Ingrese el ID del vuelo que desea eliminar"));
-                    aero.eliminarVuelo(idvuelo);
-                    break;
-                case 3:
-                    JOptionPane.showMessageDialog(null, "Gracias por usar el programa", "Aeropuerto", JOptionPane.INFORMATION_MESSAGE);
-                    opcion = 4;
-                    break;
-                default:
-                    JOptionPane.showMessageDialog(null, "Opcion invalida", "Aeropuerto", JOptionPane.ERROR_MESSAGE);
-                    break;
-            } */
-        
-        
-        
-        
-        
+        }while(opcion!=4); 
         
         
 

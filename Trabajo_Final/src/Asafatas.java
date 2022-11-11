@@ -32,6 +32,6 @@ public class Asafatas extends Persona implements Serializable {
 
     @Override
     public String toString() {
-        return "Nombre: "+getNombre()+" "+getApellido()+"\nDNI: "+getDni()+"\nAños de experiencia: "+ añosExperiencia+"\nSueldo:" + sueldo;
+        return "\n\t"+getNombre()+" "+getApellido()+", DNI: "+getDni()+", Años de experiencia: "+ añosExperiencia+", Sueldo:" + sueldo;
     }
 }
