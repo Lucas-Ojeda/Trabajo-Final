@@ -1,18 +1,13 @@
-public abstract class  Persona {
-    private String nombre;
-    private String apellido;
+import java.io.Serializable;
+
+public abstract class  Persona implements Serializable {
+    private String nombre, apellido;
     private int dni;
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
-    }
-
-    public void setDni(int dni) {
-        this.dni = dni;
+    public Persona(String nombre,String apellido, int dni){
+        this.nombre=nombre;
+        this.apellido=apellido;
+        this.dni=dni;
     }
 
     public String getNombre() {
@@ -26,4 +21,6 @@ public abstract class  Persona {
     public int getDni() {
         return dni;
     }
+
+
 }

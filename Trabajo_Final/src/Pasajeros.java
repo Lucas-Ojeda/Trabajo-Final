@@ -1,14 +1,10 @@
 import java.io.Serializable;
 
-public class Pasajeros extends Persona implements Serializable {
+public class Pasajeros extends Persona implements Informacion, Serializable {
     private int asiento;
 
-    public Pasajeros(){}
-
-    public Pasajeros(String nombre,String apellido,int dni,int asiento){
-        this.setNombre(nombre);
-        this.setApellido(apellido);
-        this.setDni(dni);
+    public Pasajeros(String nombre, String apellido, int dni, int asiento) {
+        super(nombre, apellido, dni);
         this.asiento=asiento;
     }
 
@@ -21,7 +17,8 @@ public class Pasajeros extends Persona implements Serializable {
     }
 
     @Override
-    public String toString() {
-        return "Pasajero: "+getNombre()+" "+getApellido()+"\nDNI: "+getDni()+"\nAsiento: " + asiento;
+    public String imprimir() {
+        return "Pasajero:\nNombre: "+super.getNombre()+", Apellido: "+super.getApellido()+", DNI: "+super.getDni()+
+                "\nNumero de asiento: "+this.asiento;
     }
 }
