@@ -1,166 +1,37 @@
 import java.io.Serializable;
-import java.util.LinkedList;
-import java.util.List;
 
-public class Avion implements Serializable {
-    List<Pasajeros> listPasajeros=new LinkedList<Pasajeros>();
-    List<Asafatas>listAsafatas=new LinkedList<Asafatas>();
+
+public class Avion implements Serializable, Informacion {
+
     private String nombre;
-    private int id;
     private int capacidad;
-    private String horarioSalida = "";
-
-    private Pilotos p1=new Pilotos();
-    private Pilotos p2=new Pilotos();
 
     public Avion(){}
-
-    public Avion(int id,String nombre,int capacidad){
+    public Avion(String nombre, int capacidad){
         this.nombre=nombre;
-        this.id=id;
         this.capacidad=capacidad;
     }
 
-    public Avion(int id,String nombre,int capacidad, Pilotos p1, Pilotos p2){
-        this.nombre=nombre;
-        this.id=id;
-        this.capacidad=capacidad;
-        this.p1=p1;
-        this.p2=p2;
+    public String getNombre() {
+        return nombre;
     }
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public int getCapacidad() {
+        return capacidad;
     }
 
     public void setCapacidad(int capacidad) {
         this.capacidad = capacidad;
     }
-    
-    public void setHorarioSalida(String horarioSalida) {
-        this.horarioSalida = horarioSalida;
-    }
-
-
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public int getCapacidad() {
-        return capacidad;
-    }
-
-    public String getHorarioSalida() {
-        return horarioSalida;
-    }
-
-    public Pilotos getPiloto1(){
-        return p1;
-    }
-    public Pilotos getPiloto2(){
-        return p2;
-    }
 
     @Override
-    public String toString() {
-        return "Avion: "+nombre+"\nID: "+id+"\nCapacidad: "+capacidad+"\nPiloto 1°: "+p1.toString()+"\nPiloto 2°: "+p2.toString();
+    public String imprimir() {
+        return "Avion:\n Nombre: "+this.nombre+", capacidad: "+this.capacidad;
     }
 
-    //Agregar Pasajeros
-    public void agregarPasajero(Pasajeros pasajero){
-        listPasajeros.add(pasajero);
-    }
-    //Eliminar Pasajeros
-    public void eliminarPasajero(String nombre){
-        for (Pasajeros pasajero : listPasajeros) {
-            if(pasajero.getNombre().equals(nombre)){
-                listPasajeros.remove(pasajero);
-            }
-        }
-    }
-
-    //Modificar Pasajeros
-    public void modificarPasajero(Pasajeros pasajero){
-        for (int i = 0; i < listPasajeros.size(); i++) {
-            if(listPasajeros.get(i).getDni()==pasajero.getDni()){
-                listPasajeros.set(i, pasajero);
-            }
-        }
-    }
-
-    
-
-    public List<Pasajeros> getListPasajero() {
-        return listPasajeros;
-    }
-
-    public void setListPasajero(List<Pasajeros> listPasajeros) {
-        this.listPasajeros = listPasajeros;
-    }
-
-    public List<Asafatas> getListAsafata() {
-        return listAsafatas;
-    }
-
-    public void setListAsafata(List<Asafatas> listAsafatas) {
-        this.listAsafatas = listAsafatas;
-    }
-
-    public Pilotos getP1() {
-        return p1;
-    }
-
-    public void setP1(Pilotos p1) {
-        this.p1 = p1;
-    }
-
-    public Pilotos getP2() {
-        return p2;
-    }
-
-    public void setP2(Pilotos p2) {
-        this.p2 = p2;
-    }
-
-    public int calcularAsafatas(){
-        int cantAsafatas=0;
-        cantAsafatas=capacidad/50;
-        return cantAsafatas;
-    }
-
-    //Agregar Asafatas
-    public void agregarAsafata(Asafatas asafata){
-        listAsafatas.add(asafata);
-    }
-    //Elimiar Asafatas
-    public void eliminarAsafata(String nombre){
-        for (Asafatas asafata : listAsafatas) {
-            if(asafata.getNombre().equals(nombre)){
-                listAsafatas.remove(asafata);
-            }
-        }
-    }
-    //Modificar Asafatas
-    public void modificarAsafata(Asafatas asafata){
-        for (int i = 0; i < listAsafatas.size(); i++) {
-            if(listAsafatas.get(i).getDni()==asafata.getDni()){
-                listAsafatas.set(i, asafata);
-            }
-        }
-    }
-    //Elegir Pilotos para el avion
-    public void elegirPilotos(Pilotos p1, Pilotos p2){
-        this.p1=p1;
-        this.p2=p2;
-    }
 
 }

@@ -1,37 +1,18 @@
 import java.io.Serializable;
 
-public class Asafatas extends Persona implements Serializable {
+public class Asafatas extends Persona implements Serializable, Informacion {
     private int añosExperiencia;
     private double sueldo;
 
-    public Asafatas(){}
-
-    public Asafatas(String nombre,String apellido,int dni,int añosExperiencia,double sueldo){
-        this.setNombre(nombre);
-        this.setApellido(apellido);
-        this.setDni(dni);
+    public Asafatas(String nombre, String apellido, int dni, int añosExperiencia, double sueldo) {
+        super(nombre, apellido, dni);
         this.añosExperiencia=añosExperiencia;
         this.sueldo=sueldo;
     }
 
-    public void setAñosExperiencia(int añosExperiencia) {
-        this.añosExperiencia = añosExperiencia;
-    }
-
-    public void setSueldo(double sueldo) {
-        this.sueldo = sueldo;
-    }
-
-    public int getAñosExperiencia() {
-        return añosExperiencia;
-    }
-
-    public double getSueldo() {
-        return sueldo;
-    }
-
     @Override
-    public String toString() {
-        return "\n\t"+getNombre()+" "+getApellido()+", DNI: "+getDni()+", Años de experiencia: "+ añosExperiencia+", Sueldo:" + sueldo;
+    public String imprimir() {
+        return "Asafata:\nNombre: "+super.getNombre()+", Apellido: "+super.getApellido()+", DNI: "+super.getDni()
+                +"\nAños de experiencia: "+this.añosExperiencia+", Sueldo: "+this.sueldo;
     }
 }

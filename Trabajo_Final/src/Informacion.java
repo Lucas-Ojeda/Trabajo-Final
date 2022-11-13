@@ -1,6 +1,3 @@
 public interface Informacion {
-
-    //listar contenido
-    public void listar();
-
+    public String imprimir();
 }
