@@ -1,3 +1,5 @@
+package Logica;
+
 import java.io.Serializable;
 
 public class Asafatas extends Persona implements Serializable, Informacion {

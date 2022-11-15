@@ -1,9 +1,12 @@
+package Logica;
+
 import java.io.FileInputStream;
 import java.io.ObjectInputStream;
 import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 public class Vuelo implements Serializable,Informacion {
 
@@ -164,7 +167,7 @@ public class Vuelo implements Serializable,Informacion {
     }
     public void listarAsafatas(){
         for(Asafatas asafatas1: asafatas){
-            System.out.println(asafatas1.imprimir());
+            JOptionPane.showMessageDialog(null, asafatas1.imprimir(),"Lista de Pasajeros",JOptionPane.INFORMATION_MESSAGE);
         }
     }
     public void buscarAsafatas(){
@@ -202,7 +205,7 @@ public class Vuelo implements Serializable,Informacion {
     }
     public void listarPasajeros(){
         for(Pasajeros pasajeros1: pasajeros){
-            System.out.println(pasajeros1.imprimir());
+            JOptionPane.showMessageDialog(null, pasajeros1.imprimir(),"Lista de Pasajeros",JOptionPane.INFORMATION_MESSAGE);
         }
     }
     public void buscarPasajero(){

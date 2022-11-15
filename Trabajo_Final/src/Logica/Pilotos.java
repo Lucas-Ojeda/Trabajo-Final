@@ -1,3 +1,5 @@
+package Logica;
+
 import java.io.Serializable;
 
 public class Pilotos extends Persona implements Serializable, Informacion {
@@ -35,3 +37,4 @@ public class Pilotos extends Persona implements Serializable, Informacion {
                 +"\nAños de experiencia: "+this.añosExperiencia+", Sueldo: "+this.sueldo;
     }
 }
+

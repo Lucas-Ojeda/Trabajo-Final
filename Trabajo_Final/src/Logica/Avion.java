@@ -1,3 +1,5 @@
+package Logica;
+
 import java.io.Serializable;
 
 
@@ -35,3 +37,4 @@ public class Avion implements Serializable, Informacion {
 
 
 }
+

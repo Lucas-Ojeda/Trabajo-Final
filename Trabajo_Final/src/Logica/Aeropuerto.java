@@ -1,3 +1,5 @@
+package Logica;
+
 import javax.swing.JOptionPane;
 import java.io.*;
 import java.util.LinkedList;
@@ -226,7 +228,7 @@ public class Aeropuerto implements Serializable {
 
         }while(opcion2!=5);
     }
-    static void agregarVuelo(){
+    public static void agregarVuelo(){
         System.out.println("ID DE VUELO: ");
         int id=sc.nextInt();
         sc.nextLine();
@@ -259,7 +261,6 @@ public class Aeropuerto implements Serializable {
                 break;
             }
         }
-
     }
     static void eliminarVuelo(){
         System.out.println("ID de Vuelo: ");

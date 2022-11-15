@@ -1,3 +1,5 @@
+package Logica;
+
 import java.io.Serializable;
 
 public class Pasajeros extends Persona implements Informacion, Serializable {
@@ -22,3 +24,4 @@ public class Pasajeros extends Persona implements Informacion, Serializable {
                 "\nNumero de asiento: "+this.asiento;
     }
 }
+
