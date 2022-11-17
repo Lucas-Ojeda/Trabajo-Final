@@ -2,15 +2,18 @@
 package Visual;
 
 import Logica.Vuelo;
+import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
 import javax.swing.JOptionPane;
 
-public class Ventana extends javax.swing.JFrame {
+public class Ventana extends javax.swing.JFrame implements Serializable {
     static List<Vuelo>listVuelo=new LinkedList<>();
     int xMouse, yMouse;
+    
     public Ventana() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     @SuppressWarnings("unchecked")
@@ -32,7 +35,6 @@ public class Ventana extends javax.swing.JFrame {
         PanelSup = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setLocationByPlatform(true);
         setUndecorated(true);
         setResizable(false);
 
@@ -62,6 +64,7 @@ public class Ventana extends javax.swing.JFrame {
         BotonSalir.setFont(new java.awt.Font("Roboto Black", 0, 18)); // NOI18N
         BotonSalir.setForeground(new java.awt.Color(255, 255, 255));
         BotonSalir.setText("Salir");
+        BotonSalir.setFocusPainted(false);
         BotonSalir.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 BotonSalirMouseClicked(evt);
@@ -72,62 +75,67 @@ public class Ventana extends javax.swing.JFrame {
                 BotonSalirActionPerformed(evt);
             }
         });
-        Panel2.add(BotonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 430, 180, 30));
+        Panel2.add(BotonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 430, 190, 30));
 
         BotonVerVuelos.setBackground(new java.awt.Color(0, 102, 255));
         BotonVerVuelos.setFont(new java.awt.Font("Roboto Black", 0, 18)); // NOI18N
         BotonVerVuelos.setForeground(new java.awt.Color(255, 255, 255));
-        BotonVerVuelos.setText("Ver Vuelo");
+        BotonVerVuelos.setText("Ver Vuelos");
+        BotonVerVuelos.setFocusPainted(false);
         BotonVerVuelos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonVerVuelosActionPerformed(evt);
             }
         });
-        Panel2.add(BotonVerVuelos, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 180, 30));
+        Panel2.add(BotonVerVuelos, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 190, 30));
 
         BotonAdministrar.setBackground(new java.awt.Color(0, 102, 255));
         BotonAdministrar.setFont(new java.awt.Font("Roboto Black", 0, 18)); // NOI18N
         BotonAdministrar.setForeground(new java.awt.Color(255, 255, 255));
         BotonAdministrar.setText("Administrar Vuelo");
+        BotonAdministrar.setFocusPainted(false);
         BotonAdministrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonAdministrarActionPerformed(evt);
             }
         });
-        Panel2.add(BotonAdministrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 180, 30));
+        Panel2.add(BotonAdministrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 190, 30));
 
         BotonCrearVuelos.setBackground(new java.awt.Color(0, 102, 255));
         BotonCrearVuelos.setFont(new java.awt.Font("Roboto Black", 0, 18)); // NOI18N
         BotonCrearVuelos.setForeground(new java.awt.Color(255, 255, 255));
         BotonCrearVuelos.setText("Crear Vuelo");
+        BotonCrearVuelos.setFocusPainted(false);
         BotonCrearVuelos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonCrearVuelosActionPerformed(evt);
             }
         });
-        Panel2.add(BotonCrearVuelos, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 180, 30));
+        Panel2.add(BotonCrearVuelos, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 190, 30));
 
         BotonEliminarVuelo.setBackground(new java.awt.Color(0, 102, 255));
         BotonEliminarVuelo.setFont(new java.awt.Font("Roboto Black", 0, 18)); // NOI18N
         BotonEliminarVuelo.setForeground(new java.awt.Color(255, 255, 255));
         BotonEliminarVuelo.setText("Eliminar Vuelo");
+        BotonEliminarVuelo.setFocusPainted(false);
         BotonEliminarVuelo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonEliminarVueloActionPerformed(evt);
             }
         });
-        Panel2.add(BotonEliminarVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, 180, 30));
+        Panel2.add(BotonEliminarVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, 190, 30));
 
         BotonDatosVuelo.setBackground(new java.awt.Color(0, 102, 255));
         BotonDatosVuelo.setFont(new java.awt.Font("Roboto Black", 0, 18)); // NOI18N
         BotonDatosVuelo.setForeground(new java.awt.Color(255, 255, 255));
         BotonDatosVuelo.setText("Datos de Vuelo");
+        BotonDatosVuelo.setFocusPainted(false);
         BotonDatosVuelo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonDatosVueloActionPerformed(evt);
             }
         });
-        Panel2.add(BotonDatosVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 180, 30));
+        Panel2.add(BotonDatosVuelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 190, 30));
 
         Bg.add(Panel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 0, 250, 500));
 
@@ -193,15 +201,20 @@ public class Ventana extends javax.swing.JFrame {
     }//GEN-LAST:event_PanelSupMouseDragged
 
     private void BotonVerVuelosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonVerVuelosActionPerformed
-        buscarVuelo();
+        VentanaTabla tabla = new VentanaTabla();
+        tabla.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_BotonVerVuelosActionPerformed
 
     private void BotonDatosVueloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonDatosVueloActionPerformed
-        
+        buscarVuelo();
     }//GEN-LAST:event_BotonDatosVueloActionPerformed
 
     private void BotonAdministrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAdministrarActionPerformed
-        // TODO add your handling code here:
+                
+        VentanaAdministracion administracion = new VentanaAdministracion();
+        administracion.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_BotonAdministrarActionPerformed
 
     private void BotonCrearVuelosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonCrearVuelosActionPerformed
@@ -219,12 +232,22 @@ public class Ventana extends javax.swing.JFrame {
     }
 
     static void agregarVuelo(){
-        System.out.println("ID DE VUELO: ");
+        int cont = 0;
+        
         int id= Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese el id del vuelo", "Crear Vuelo", JOptionPane.INFORMATION_MESSAGE));
         String despegue = JOptionPane.showInputDialog(null, "Ingrese la ciudad de salida del vuelo", "Crear Vuelo", JOptionPane.INFORMATION_MESSAGE);
         String destino= JOptionPane.showInputDialog(null, "Ingrese la ciudad de llegada del vuelo", "Crear Vuelo", JOptionPane.INFORMATION_MESSAGE);
         Vuelo vuelo=new Vuelo(id, despegue, destino);
-        listVuelo.add(vuelo);
+        for(Vuelo vuelo1: listVuelo){
+            if(vuelo1.getId()==id){
+                cont++;
+            }
+        }
+        if(cont!=0){
+            JOptionPane.showMessageDialog(null, "Ya existe un vuelo con el ID: "+id,"Crear Vuelo",JOptionPane.ERROR_MESSAGE);
+        }else{
+            listVuelo.add(vuelo);
+        }
     }
     
     static void listarVuelos(){
@@ -260,6 +283,9 @@ public class Ventana extends javax.swing.JFrame {
             }
         }
     }
+    
+    
+    
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Bg;

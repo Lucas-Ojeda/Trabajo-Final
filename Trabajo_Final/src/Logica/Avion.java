@@ -32,7 +32,7 @@ public class Avion implements Serializable, Informacion {
 
     @Override
     public String imprimir() {
-        return "Avion:\n Nombre: "+this.nombre+", capacidad: "+this.capacidad;
+        return "Avion: "+this.nombre+", capacidad: "+this.capacidad;
     }
 
 

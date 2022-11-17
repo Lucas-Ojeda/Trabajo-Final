@@ -79,6 +79,12 @@ public class Vuelo implements Serializable,Informacion {
         this.p2 = p2;
     }
 
+    public List<Asafatas> getAsafatas() {
+        return asafatas;
+    }
+    
+    
+
     public void agregarAvion(){
         Scanner sc=new Scanner(System.in);
         System.out.println("NOMBRE: ");
@@ -95,59 +101,40 @@ public class Vuelo implements Serializable,Informacion {
 
 
     public void agregarPiloto1(){
-        Scanner sc=new Scanner(System.in);
-        System.out.println("Piloto N° 1: \n");
-        System.out.println("Nombre: ");
-        String nombre=sc.nextLine();
-        System.out.print("APELLIDO: ");
-        String apellido = sc.nextLine();
-        System.out.print("DNI:");
-        int dni = sc.nextInt();
-        System.out.println("AÑOS DE EXPERIENCIA: ");
-        int años=sc.nextInt();
-        System.out.println("SUELDO: ");
-        double sueldo=sc.nextDouble();
-        sc.nextLine();
+        String nombre=JOptionPane.showInputDialog(null, "Ingrese el nombre del Piloto", "Crear Piloto", JOptionPane.INFORMATION_MESSAGE);        
+        String apellido = JOptionPane.showInputDialog(null, "Ingrese el apellido del Piloto", "Crear Piloto", JOptionPane.INFORMATION_MESSAGE);        
+        int dni = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese el DNI del Piloto", "Crear Piloto", JOptionPane.INFORMATION_MESSAGE));        
+        int años=Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese los años de experiencia del Piloto", "Crear Piloto", JOptionPane.INFORMATION_MESSAGE));
+        double sueldo=Double.parseDouble(JOptionPane.showInputDialog(null, "Ingrese el sueldo del Piloto", "Crear Piloto", JOptionPane.INFORMATION_MESSAGE));
         Pilotos piloto=new Pilotos(nombre,apellido,dni,años,sueldo);
         this.p1=piloto;
     }
     public void eliminarPiloto1(){
-        this.p1=null;
+        Pilotos piloto1= new Pilotos(null,null,0,0,0);
+        this.p1=piloto1;
     }
 
     public void agregarPiloto2(){
-        Scanner sc=new Scanner(System.in);
-        System.out.println("Piloto N° 2: \n");
-        System.out.println("Nombre: ");
-        String nombre=sc.nextLine();
-        System.out.print("APELLIDO: ");
-        String apellido = sc.nextLine();
-        System.out.print("DNI:");
-        int dni = sc.nextInt();
-        System.out.println("AÑOS DE EXPERIENCIA: ");
-        int años=sc.nextInt();
-        System.out.println("SUELDO: ");
-        double sueldo=sc.nextDouble();
-        sc.nextLine();
+        String nombre=JOptionPane.showInputDialog(null, "Ingrese el nombre del Piloto", "Crear Piloto", JOptionPane.INFORMATION_MESSAGE);        
+        String apellido = JOptionPane.showInputDialog(null, "Ingrese el apellido del Piloto", "Crear Piloto", JOptionPane.INFORMATION_MESSAGE);        
+        int dni = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese el DNI del Piloto", "Crear Piloto", JOptionPane.INFORMATION_MESSAGE));        
+        int años=Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese los años de experiencia del Piloto", "Crear Piloto", JOptionPane.INFORMATION_MESSAGE));
+        double sueldo=Double.parseDouble(JOptionPane.showInputDialog(null, "Ingrese el sueldo del Piloto", "Crear Piloto", JOptionPane.INFORMATION_MESSAGE));
         Pilotos piloto=new Pilotos(nombre,apellido,dni,años,sueldo);
         this.p2=piloto;
     }
     public void eliminarPiloto2(){
-        this.p2=null;
+        Pilotos piloto1= new Pilotos(null,null,0,0,0);
+        this.p2=piloto1;
     }
     public void agregarAsafata(){
-        Scanner sc=new Scanner(System.in);
-        System.out.println("Nombre: ");
-        String nombre=sc.nextLine();
-        System.out.print("APELLIDO: ");
-        String apellido = sc.nextLine();
-        System.out.print("DNI:");
-        int dni = sc.nextInt();
-        System.out.println("AÑOS DE EXPERIENCIA: ");
-        int años=sc.nextInt();
-        System.out.println("SUELDO: ");
-        double sueldo=sc.nextDouble();
-        sc.nextLine();
+        
+        String nombre=JOptionPane.showInputDialog(null, "Ingrese el nombre de la Asafata", "Crear Asafata", JOptionPane.INFORMATION_MESSAGE);
+        String apellido = JOptionPane.showInputDialog(null, "Ingrese el apellido de la Asafata", "Crear Asafata", JOptionPane.INFORMATION_MESSAGE);
+        int dni = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese el DNI de la Asafata", "Crear Asafata", JOptionPane.INFORMATION_MESSAGE));        
+        int años=Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese los años de experiencia de la Asafata", "Crear Asafata", JOptionPane.INFORMATION_MESSAGE));
+        double sueldo=Double.parseDouble(JOptionPane.showInputDialog(null, "Ingrese el sueldo de la Asafata", "Crear Asafata", JOptionPane.INFORMATION_MESSAGE));
+        
         Asafatas asafata=new Asafatas(nombre,apellido,dni,años,sueldo);
         this.asafatas.add(asafata);
     }

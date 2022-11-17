@@ -12,6 +12,14 @@ public class Asafatas extends Persona implements Serializable, Informacion {
         this.sueldo=sueldo;
     }
 
+    public int getAñosExperiencia() {
+        return añosExperiencia;
+    }
+
+    public double getSueldo() {
+        return sueldo;
+    }
+
     @Override
     public String imprimir() {
         return "Asafata:\nNombre: "+super.getNombre()+", Apellido: "+super.getApellido()+", DNI: "+super.getDni()
