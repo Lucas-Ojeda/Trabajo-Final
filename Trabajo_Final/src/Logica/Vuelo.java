@@ -161,6 +161,7 @@ public class Vuelo implements Serializable,Informacion {
         this.asafatas.add(asafata);
     }
     public void agregarPasajeros(){
+        int contDNI=0,contA=0;
         Scanner sc=new Scanner(System.in);
         System.out.println("Nombre: ");
         String nombre=sc.nextLine();
@@ -172,7 +173,22 @@ public class Vuelo implements Serializable,Informacion {
         int asiento=sc.nextInt();
         sc.nextLine();
         Pasajeros pasajero=new Pasajeros(nombre,apellido,dni,asiento);
-        this.pasajeros.add(pasajero);
+        for(Pasajeros pasjero1:pasajeros){
+            if(pasjero1.getDni()==dni){
+                contDNI++;
+            }
+            if(pasjero1.getAsiento()==asiento){
+                contA++;
+            }
+        }
+        if(contDNI!=0){
+            System.out.println("Este pasajero ya esta cargado, revise sus datos");
+        } else if (contA!=0) {
+            System.out.println("Ya hay un pasajero asignado al asiento: "+asiento);
+        }else{
+            this.pasajeros.add(pasajero);
+        }
+
     }
     public void listarAsafatas(){
         for(Asafatas asafatas1: asafatas){
