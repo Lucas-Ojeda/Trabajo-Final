@@ -1,5 +1,4 @@
 package Logica;
-
 import javax.swing.JOptionPane;
 import java.io.*;
 import java.util.LinkedList;
@@ -25,7 +24,7 @@ public class Aeropuerto implements Serializable {
         do{
 
             System.out.println(" ----------------------------------------\n");
-            System.out.println("1)Crear vuel\n2)Administrar elementos de un Vuelo\n3)Listar Vuelos\n4)Buscar y listar datos de un vuelo" +
+            System.out.println("1)Crear vuelo\n2)Administrar elementos de un Vuelo\n3)Listar Vuelos\n4)Buscar y listar datos de un vuelo" +
                     "\n5)Buscar y eliminar un vuelo\n6)Salir");
             System.out.println("Ingrese una opcion: ");
             opcion=sc.nextInt();
@@ -106,8 +105,14 @@ public class Aeropuerto implements Serializable {
                                 case 1:
                                     System.out.println("Agregar Pilotos");
                                     System.out.println("---------------");
-                                    vuelo1.agregarPiloto1();
-                                    vuelo1.agregarPiloto2();
+                                    if(vuelo1.getP1().getNombre()==null){
+                                        vuelo1.agregarPiloto1();
+                                        vuelo1.agregarPiloto2();
+                                        System.out.println("Pilotos agregados");
+                                    }else{
+                                        System.out.println("ya existen pilotos, eliminelos antes");
+                                    }
+
                                     opcion3 = 3;
                                     break;
                                 case 2:
@@ -137,7 +142,12 @@ public class Aeropuerto implements Serializable {
                                 case 1:
                                     System.out.println("Agregar Asafatas");
                                     System.out.println("---------------");
-                                    vuelo1.agregarAsafata();
+                                    if(vuelo1.getAsafatas().size()<8){
+                                        vuelo1.agregarAsafata();
+                                    }else{
+                                        System.out.println("Ya no se pueden agregar asafatas");
+                                    }
+
                                     opcion3 = 3;
                                     break;
                                 case 2:
@@ -166,7 +176,12 @@ public class Aeropuerto implements Serializable {
                                 case 1:
                                     System.out.println("Agregar Avion");
                                     System.out.println("---------------");
-                                    vuelo1.agregarAvion();
+                                    if(vuelo1.getA1().getNombre()==null){
+                                        vuelo1.agregarAvion();
+                                    }else {
+                                        System.out.println("ya existe un avion asignado a este vuelo");
+                                    }
+
                                     opcion3 = 3;
                                     break;
                                 case 2:
@@ -195,7 +210,21 @@ public class Aeropuerto implements Serializable {
                                 case 1:
                                     System.out.println("Agregar Pasajeros");
                                     System.out.println("---------------");
-                                    vuelo1.agregarPasajeros();
+
+                                    if(vuelo1.getA1().getNombre()!=null){
+                                        if(vuelo1.getPasajeros().size()<vuelo1.getA1().getCapacidad()){
+                                            vuelo1.agregarPasajeros();
+                                        }else{
+                                            System.out.println("Ya se lleno la capacidad del avion");
+                                        }
+
+                                    }else{
+                                        System.out.println("Agregar un avion primero");
+                                    }
+
+
+
+
                                     opcion3 = 3;
                                     break;
                                 case 2:
@@ -228,24 +257,32 @@ public class Aeropuerto implements Serializable {
 
         }while(opcion2!=5);
     }
-    public static void agregarVuelo(){
+    static void agregarVuelo() {
+        int contador=0;
         System.out.println("ID DE VUELO: ");
-        int id=sc.nextInt();
+        int id = sc.nextInt();
         sc.nextLine();
         System.out.println("CIUDAD DE DESPEGUE: ");
-        String despegue=sc.nextLine();
+        String despegue = sc.nextLine();
         System.out.println("CIUDAD DE DESTINO: ");
-        String destino=sc.nextLine();
-        Vuelo vuelo=new Vuelo(id, despegue, destino);
-        listVuelo.add(vuelo);
+        String destino = sc.nextLine();
+        Vuelo vuelo1 = new Vuelo(id, despegue, destino);
+        for(Vuelo vuelo:listVuelo){
+            if(vuelo.getId()==id){
+                contador++;
+            }
+        }
+        if(contador!=0){
+            System.out.println("Ya existe un vuelo con el ID: "+id);
+        }else{
+            listVuelo.add(vuelo1);
+        }
+
     }
     static void listarVuelos(){
         for(Vuelo vuelo:listVuelo){
+            System.out.println("<---------------------------->\n");
             System.out.println(vuelo.imprimir());
-            System.out.println("\n<---------------------------->\n");
-            vuelo.listarAsafatas();
-            System.out.println("\n<---------------------------->\n");
-            vuelo.listarPasajeros();
         }
     }
     static void bucarVuelo(){
@@ -253,6 +290,7 @@ public class Aeropuerto implements Serializable {
         int id=sc.nextInt();
         for (Vuelo vuelo1:listVuelo ) {
             if(vuelo1.getId()==id){
+                System.out.println("<---------------------------->\n");
                 System.out.println(vuelo1.imprimir());
                 System.out.println("\n<---------------------------->\n");
                 vuelo1.listarAsafatas();
@@ -261,6 +299,7 @@ public class Aeropuerto implements Serializable {
                 break;
             }
         }
+
     }
     static void eliminarVuelo(){
         System.out.println("ID de Vuelo: ");
@@ -298,4 +337,4 @@ public class Aeropuerto implements Serializable {
 
 
 
-}//Eliminar vuelos estatic
+}

@@ -1,12 +1,10 @@
 package Logica;
-
 import java.io.FileInputStream;
 import java.io.ObjectInputStream;
 import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
-import javax.swing.JOptionPane;
 
 public class Vuelo implements Serializable,Informacion {
 
@@ -82,8 +80,10 @@ public class Vuelo implements Serializable,Informacion {
     public List<Asafatas> getAsafatas() {
         return asafatas;
     }
-    
-    
+
+    public List<Pasajeros> getPasajeros() {
+        return pasajeros;
+    }
 
     public void agregarAvion(){
         Scanner sc=new Scanner(System.in);
@@ -96,45 +96,67 @@ public class Vuelo implements Serializable,Informacion {
         this.a1=avion;
     }
     public void eliminarAvion(){
-        this.a1=null;
+        Avion a=new Avion(null,0);
+        this.a1=a;
     }
 
 
     public void agregarPiloto1(){
-        String nombre=JOptionPane.showInputDialog(null, "Ingrese el nombre del Piloto", "Crear Piloto", JOptionPane.INFORMATION_MESSAGE);        
-        String apellido = JOptionPane.showInputDialog(null, "Ingrese el apellido del Piloto", "Crear Piloto", JOptionPane.INFORMATION_MESSAGE);        
-        int dni = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese el DNI del Piloto", "Crear Piloto", JOptionPane.INFORMATION_MESSAGE));        
-        int años=Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese los años de experiencia del Piloto", "Crear Piloto", JOptionPane.INFORMATION_MESSAGE));
-        double sueldo=Double.parseDouble(JOptionPane.showInputDialog(null, "Ingrese el sueldo del Piloto", "Crear Piloto", JOptionPane.INFORMATION_MESSAGE));
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Piloto N° 1: \n");
+        System.out.println("Nombre: ");
+        String nombre=sc.nextLine();
+        System.out.print("APELLIDO: ");
+        String apellido = sc.nextLine();
+        System.out.print("DNI:");
+        int dni = sc.nextInt();
+        System.out.println("AÑOS DE EXPERIENCIA: ");
+        int años=sc.nextInt();
+        System.out.println("SUELDO: ");
+        double sueldo=sc.nextDouble();
+        sc.nextLine();
         Pilotos piloto=new Pilotos(nombre,apellido,dni,años,sueldo);
         this.p1=piloto;
     }
     public void eliminarPiloto1(){
-        Pilotos piloto1= new Pilotos(null,null,0,0,0);
-        this.p1=piloto1;
+        Pilotos pilotos=new Pilotos(null,null,0,0,0);
+        this.p1=pilotos;
     }
 
     public void agregarPiloto2(){
-        String nombre=JOptionPane.showInputDialog(null, "Ingrese el nombre del Piloto", "Crear Piloto", JOptionPane.INFORMATION_MESSAGE);        
-        String apellido = JOptionPane.showInputDialog(null, "Ingrese el apellido del Piloto", "Crear Piloto", JOptionPane.INFORMATION_MESSAGE);        
-        int dni = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese el DNI del Piloto", "Crear Piloto", JOptionPane.INFORMATION_MESSAGE));        
-        int años=Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese los años de experiencia del Piloto", "Crear Piloto", JOptionPane.INFORMATION_MESSAGE));
-        double sueldo=Double.parseDouble(JOptionPane.showInputDialog(null, "Ingrese el sueldo del Piloto", "Crear Piloto", JOptionPane.INFORMATION_MESSAGE));
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Piloto N° 2: \n");
+        System.out.println("Nombre: ");
+        String nombre=sc.nextLine();
+        System.out.print("APELLIDO: ");
+        String apellido = sc.nextLine();
+        System.out.print("DNI:");
+        int dni = sc.nextInt();
+        System.out.println("AÑOS DE EXPERIENCIA: ");
+        int años=sc.nextInt();
+        System.out.println("SUELDO: ");
+        double sueldo=sc.nextDouble();
+        sc.nextLine();
         Pilotos piloto=new Pilotos(nombre,apellido,dni,años,sueldo);
         this.p2=piloto;
     }
     public void eliminarPiloto2(){
-        Pilotos piloto1= new Pilotos(null,null,0,0,0);
-        this.p2=piloto1;
+        Pilotos pilotos=new Pilotos(null,null,0,0,0);
+        this.p2=pilotos;
     }
     public void agregarAsafata(){
-        
-        String nombre=JOptionPane.showInputDialog(null, "Ingrese el nombre de la Asafata", "Crear Asafata", JOptionPane.INFORMATION_MESSAGE);
-        String apellido = JOptionPane.showInputDialog(null, "Ingrese el apellido de la Asafata", "Crear Asafata", JOptionPane.INFORMATION_MESSAGE);
-        int dni = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese el DNI de la Asafata", "Crear Asafata", JOptionPane.INFORMATION_MESSAGE));        
-        int años=Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese los años de experiencia de la Asafata", "Crear Asafata", JOptionPane.INFORMATION_MESSAGE));
-        double sueldo=Double.parseDouble(JOptionPane.showInputDialog(null, "Ingrese el sueldo de la Asafata", "Crear Asafata", JOptionPane.INFORMATION_MESSAGE));
-        
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Nombre: ");
+        String nombre=sc.nextLine();
+        System.out.print("APELLIDO: ");
+        String apellido = sc.nextLine();
+        System.out.print("DNI:");
+        int dni = sc.nextInt();
+        System.out.println("AÑOS DE EXPERIENCIA: ");
+        int años=sc.nextInt();
+        System.out.println("SUELDO: ");
+        double sueldo=sc.nextDouble();
+        sc.nextLine();
         Asafatas asafata=new Asafatas(nombre,apellido,dni,años,sueldo);
         this.asafatas.add(asafata);
     }
@@ -154,7 +176,7 @@ public class Vuelo implements Serializable,Informacion {
     }
     public void listarAsafatas(){
         for(Asafatas asafatas1: asafatas){
-            JOptionPane.showMessageDialog(null, asafatas1.imprimir(),"Lista de Pasajeros",JOptionPane.INFORMATION_MESSAGE);
+            System.out.println(asafatas1.imprimir());
         }
     }
     public void buscarAsafatas(){
@@ -162,13 +184,13 @@ public class Vuelo implements Serializable,Informacion {
         System.out.println("NOMBRE: ");
         String nombreAsafata=sc.nextLine();
         try{
-        for(Asafatas asafatas1:asafatas){
-            if(asafatas1.getNombre().equals(nombreAsafata)){
-                System.out.println(asafatas1.imprimir());
+            for(Asafatas asafatas1:asafatas){
+                if(asafatas1.getNombre().equals(nombreAsafata)){
+                    System.out.println(asafatas1.imprimir());
+                }
             }
-        }
         }catch (Exception e){
-          System.out.println("No se ecnotro asafata");
+            System.out.println("No se ecnotro asafata");
         }
 
 
@@ -177,22 +199,23 @@ public class Vuelo implements Serializable,Informacion {
         Scanner sc=new Scanner(System.in);
         System.out.println("NOMBRE: ");
         String nombreAsafata=sc.nextLine();
-         try{
-        for(Asafatas asafatas1:asafatas){
-            if(asafatas1.getNombre().equals(nombreAsafata)){
-                System.out.println(asafatas1.imprimir());
-                asafatas.remove(asafatas1);
-                System.out.println("Asafata eliminada");
+        try{
+            for(Asafatas asafatas1:asafatas){
+                if(asafatas1.getNombre().equals(nombreAsafata)){
+                    System.out.println(asafatas1.imprimir());
+                    asafatas.remove(asafatas1);
+                    System.out.println("Asafata eliminada");
+                }
             }
-        }
         }catch (Exception e){
-           System.out.println("No se encontro asafata");
+            System.out.println("No se encontro asafata");
         }
+
 
     }
     public void listarPasajeros(){
         for(Pasajeros pasajeros1: pasajeros){
-            JOptionPane.showMessageDialog(null, pasajeros1.imprimir(),"Lista de Pasajeros",JOptionPane.INFORMATION_MESSAGE);
+            System.out.println(pasajeros1.imprimir());
         }
     }
     public void buscarPasajero(){
@@ -200,13 +223,13 @@ public class Vuelo implements Serializable,Informacion {
         System.out.println("NOMBRE: ");
         String nombrePasajero=sc.nextLine();
         try {
-        for(Pasajeros pasajeros1:pasajeros){
-            if(pasajeros1.getNombre().equals(nombrePasajero)){
-                System.out.println(pasajeros1.imprimir());
+            for(Pasajeros pasajeros1:pasajeros){
+                if(pasajeros1.getNombre().equals(nombrePasajero)){
+                    System.out.println(pasajeros1.imprimir());
+                }
             }
-        }
         }catch (Exception e){
-           System.out.println("Pasajero no encontrado");
+            System.out.println("Pasajero no encontrado");
         }
 
     }
@@ -215,12 +238,12 @@ public class Vuelo implements Serializable,Informacion {
         System.out.println("NOMBRE: ");
         String nombrePasajero=sc.nextLine();
         try{
-        for(Pasajeros pasajeros1:pasajeros){
-            if(pasajeros1.getNombre().equals(nombrePasajero)){
-                pasajeros.remove(pasajeros1);
-                System.out.println("Pasajero Eliminado");
+            for(Pasajeros pasajeros1:pasajeros){
+                if(pasajeros1.getNombre().equals(nombrePasajero)){
+                    pasajeros.remove(pasajeros1);
+                    System.out.println("Pasajero Eliminado");
+                }
             }
-        }
         }catch (Exception e){
             System.out.println("No se encontro el pasajero");
         }

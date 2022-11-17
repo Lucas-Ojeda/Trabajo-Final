@@ -1,5 +1,4 @@
 package Logica;
-
 import java.io.Serializable;
 
 public class Asafatas extends Persona implements Serializable, Informacion {
@@ -10,14 +9,6 @@ public class Asafatas extends Persona implements Serializable, Informacion {
         super(nombre, apellido, dni);
         this.añosExperiencia=añosExperiencia;
         this.sueldo=sueldo;
-    }
-
-    public int getAñosExperiencia() {
-        return añosExperiencia;
-    }
-
-    public double getSueldo() {
-        return sueldo;
     }
 
     @Override

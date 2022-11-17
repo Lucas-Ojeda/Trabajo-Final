@@ -34,7 +34,6 @@ public class Pilotos extends Persona implements Serializable, Informacion {
     @Override
     public String imprimir() {
         return "Piloto:\n Nombre: "+super.getNombre()+", Apellido: "+super.getApellido()+", DNI: "+super.getDni()
-                +"\nAños de experiencia: "+this.añosExperiencia+", Sueldo: $"+this.sueldo;
+                +"\nAños de experiencia: "+this.añosExperiencia+", Sueldo: "+this.sueldo;
     }
 }
-
