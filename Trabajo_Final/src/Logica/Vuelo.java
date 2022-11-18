@@ -1,6 +1,4 @@
 package Logica;
-import java.io.FileInputStream;
-import java.io.ObjectInputStream;
 import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
@@ -86,14 +84,20 @@ public class Vuelo implements Serializable,Informacion {
     }
 
     public void agregarAvion(){
-        Scanner sc=new Scanner(System.in);
-        System.out.println("NOMBRE: ");
-        String nombre=sc.nextLine();
-        System.out.println("Capacidad: ");
-        int capacidad=sc.nextInt();
-        sc.nextLine();
-        Avion avion=new Avion(nombre,capacidad);
-        this.a1=avion;
+        try{
+            Scanner sc=new Scanner(System.in);
+            System.out.println("NOMBRE: ");
+            String nombre=sc.nextLine();
+            System.out.println("Capacidad: ");
+            int capacidad=sc.nextInt();
+            sc.nextLine();
+            Avion avion=new Avion(nombre,capacidad);
+            this.a1=avion;
+        }catch (Exception e){
+            System.out.println("Error en la carga de datos");
+        }
+
+
     }
     public void eliminarAvion(){
         Avion a=new Avion(null,0);
@@ -103,20 +107,28 @@ public class Vuelo implements Serializable,Informacion {
 
     public void agregarPiloto1(){
         Scanner sc=new Scanner(System.in);
-        System.out.println("Piloto N° 1: \n");
-        System.out.println("Nombre: ");
-        String nombre=sc.nextLine();
-        System.out.print("APELLIDO: ");
-        String apellido = sc.nextLine();
-        System.out.print("DNI:");
-        int dni = sc.nextInt();
-        System.out.println("AÑOS DE EXPERIENCIA: ");
-        int años=sc.nextInt();
-        System.out.println("SUELDO: ");
-        double sueldo=sc.nextDouble();
-        sc.nextLine();
-        Pilotos piloto=new Pilotos(nombre,apellido,dni,años,sueldo);
-        this.p1=piloto;
+        Scanner str=new Scanner(System.in);
+        try {
+            System.out.println("Piloto N° 1: \n");
+            System.out.println("Nombre: ");
+            String nombre=str.nextLine();
+            System.out.print("APELLIDO: ");
+            String apellido = sc.nextLine();
+            System.out.print("DNI:");
+            int dni = sc.nextInt();
+            sc.nextLine();
+            System.out.println("AÑOS DE EXPERIENCIA: ");
+            int años=sc.nextInt();
+            sc.nextLine();
+            System.out.println("SUELDO: ");
+            double sueldo=sc.nextDouble();
+            sc.nextLine();
+            Pilotos piloto=new Pilotos(nombre,apellido,dni,años,sueldo);
+            this.p1=piloto;
+        }catch (Exception e){
+            System.out.println("Error en la carga de datos");
+        }
+
     }
     public void eliminarPiloto1(){
         Pilotos pilotos=new Pilotos(null,null,0,0,0);
@@ -125,20 +137,30 @@ public class Vuelo implements Serializable,Informacion {
 
     public void agregarPiloto2(){
         Scanner sc=new Scanner(System.in);
-        System.out.println("Piloto N° 2: \n");
-        System.out.println("Nombre: ");
-        String nombre=sc.nextLine();
-        System.out.print("APELLIDO: ");
-        String apellido = sc.nextLine();
-        System.out.print("DNI:");
-        int dni = sc.nextInt();
-        System.out.println("AÑOS DE EXPERIENCIA: ");
-        int años=sc.nextInt();
-        System.out.println("SUELDO: ");
-        double sueldo=sc.nextDouble();
-        sc.nextLine();
-        Pilotos piloto=new Pilotos(nombre,apellido,dni,años,sueldo);
-        this.p2=piloto;
+        try{
+            System.out.println("Piloto N° 2: \n");
+            System.out.println("Nombre: ");
+            String nombre=sc.nextLine();
+
+            System.out.print("APELLIDO: ");
+            String apellido = sc.nextLine();
+
+            System.out.print("DNI:");
+            int dni = sc.nextInt();
+            sc.nextLine();
+            System.out.println("AÑOS DE EXPERIENCIA: ");
+            int años=sc.nextInt();
+            sc.nextLine();
+            System.out.println("SUELDO: ");
+            double sueldo=sc.nextDouble();
+            sc.nextLine();
+            Pilotos piloto=new Pilotos(nombre,apellido,dni,años,sueldo);
+            this.p2=piloto;
+        }catch (Exception e){
+            System.out.println("Error en la carga de datos");
+        }
+
+
     }
     public void eliminarPiloto2(){
         Pilotos pilotos=new Pilotos(null,null,0,0,0);
@@ -146,48 +168,67 @@ public class Vuelo implements Serializable,Informacion {
     }
     public void agregarAsafata(){
         Scanner sc=new Scanner(System.in);
-        System.out.println("Nombre: ");
-        String nombre=sc.nextLine();
-        System.out.print("APELLIDO: ");
-        String apellido = sc.nextLine();
-        System.out.print("DNI:");
-        int dni = sc.nextInt();
-        System.out.println("AÑOS DE EXPERIENCIA: ");
-        int años=sc.nextInt();
-        System.out.println("SUELDO: ");
-        double sueldo=sc.nextDouble();
-        sc.nextLine();
-        Asafatas asafata=new Asafatas(nombre,apellido,dni,años,sueldo);
-        this.asafatas.add(asafata);
+        try{
+            System.out.println("Nombre: ");
+            String nombre=sc.nextLine();
+
+            System.out.print("APELLIDO: ");
+            String apellido = sc.nextLine();
+
+            System.out.print("DNI:");
+            int dni = sc.nextInt();
+            sc.nextLine();
+            System.out.println("AÑOS DE EXPERIENCIA: ");
+            int años=sc.nextInt();
+            sc.nextLine();
+            System.out.println("SUELDO: ");
+            double sueldo=sc.nextDouble();
+            sc.nextLine();
+
+            Asafatas asafata=new Asafatas(nombre,apellido,dni,años,sueldo);
+            this.asafatas.add(asafata);
+        }catch (Exception e){
+            System.out.println("Error en la carga de datos");
+        }
+
     }
     public void agregarPasajeros(){
         int contDNI=0,contA=0;
         Scanner sc=new Scanner(System.in);
-        System.out.println("Nombre: ");
-        String nombre=sc.nextLine();
-        System.out.print("APELLIDO: ");
-        String apellido = sc.nextLine();
-        System.out.print("DNI:");
-        int dni = sc.nextInt();
-        System.out.println("Numero DE ASIENTO: ");
-        int asiento=sc.nextInt();
-        sc.nextLine();
-        Pasajeros pasajero=new Pasajeros(nombre,apellido,dni,asiento);
-        for(Pasajeros pasjero1:pasajeros){
-            if(pasjero1.getDni()==dni){
-                contDNI++;
+        try{
+            System.out.println("Nombre: ");
+            String nombre=sc.nextLine();
+
+            System.out.print("APELLIDO: ");
+            String apellido = sc.nextLine();
+
+            System.out.print("DNI:");
+            int dni = sc.nextInt();
+            sc.nextLine();
+            System.out.println("Numero DE ASIENTO: ");
+            int asiento=sc.nextInt();
+            sc.nextLine();
+
+            Pasajeros pasajero=new Pasajeros(nombre,apellido,dni,asiento);
+            for(Pasajeros pasjero1:pasajeros){
+                if(pasjero1.getDni()==dni){
+                    contDNI++;
+                }
+                if(pasjero1.getAsiento()==asiento){
+                    contA++;
+                }
             }
-            if(pasjero1.getAsiento()==asiento){
-                contA++;
+            if(contDNI!=0){
+                System.out.println("Este pasajero ya esta cargado, revise sus datos");
+            } else if (contA!=0) {
+                System.out.println("Ya hay un pasajero asignado al asiento: "+asiento);
+            }else{
+                this.pasajeros.add(pasajero);
             }
+        }catch (Exception e){
+            System.out.println("Error en la carga de datos");
         }
-        if(contDNI!=0){
-            System.out.println("Este pasajero ya esta cargado, revise sus datos");
-        } else if (contA!=0) {
-            System.out.println("Ya hay un pasajero asignado al asiento: "+asiento);
-        }else{
-            this.pasajeros.add(pasajero);
-        }
+
 
     }
     public void listarAsafatas(){
@@ -197,34 +238,36 @@ public class Vuelo implements Serializable,Informacion {
     }
     public void buscarAsafatas(){
         Scanner sc=new Scanner(System.in);
-        System.out.println("NOMBRE: ");
-        String nombreAsafata=sc.nextLine();
+
         try{
+            System.out.println("DNI: ");
+            int dni=sc.nextInt();
             for(Asafatas asafatas1:asafatas){
-                if(asafatas1.getNombre().equals(nombreAsafata)){
+                if(asafatas1.getDni()==dni){
                     System.out.println(asafatas1.imprimir());
                 }
             }
         }catch (Exception e){
-            System.out.println("No se ecnotro asafata");
+            System.out.println("ERROR");
         }
 
 
     }
     public void eliminarAsafatas(){
         Scanner sc=new Scanner(System.in);
-        System.out.println("NOMBRE: ");
-        String nombreAsafata=sc.nextLine();
         try{
+            System.out.println("DNI: ");
+            int dni=sc.nextInt();
             for(Asafatas asafatas1:asafatas){
-                if(asafatas1.getNombre().equals(nombreAsafata)){
+                if(asafatas1.getDni()==dni){
                     System.out.println(asafatas1.imprimir());
                     asafatas.remove(asafatas1);
+                    System.out.println("-------------------");
                     System.out.println("Asafata eliminada");
                 }
             }
         }catch (Exception e){
-            System.out.println("No se encontro asafata");
+            System.out.println("ERROR");
         }
 
 
@@ -236,11 +279,12 @@ public class Vuelo implements Serializable,Informacion {
     }
     public void buscarPasajero(){
         Scanner sc=new Scanner(System.in);
-        System.out.println("NOMBRE: ");
-        String nombrePasajero=sc.nextLine();
+
         try {
+            System.out.println("DNI: ");
+            int dni=sc.nextInt();
             for(Pasajeros pasajeros1:pasajeros){
-                if(pasajeros1.getNombre().equals(nombrePasajero)){
+                if(pasajeros1.getDni()==dni){
                     System.out.println(pasajeros1.imprimir());
                 }
             }
@@ -251,12 +295,15 @@ public class Vuelo implements Serializable,Informacion {
     }
     public void eliminarPasajero(){
         Scanner sc=new Scanner(System.in);
-        System.out.println("NOMBRE: ");
-        String nombrePasajero=sc.nextLine();
+
         try{
+            System.out.println("DNI :");
+            int dni=sc.nextInt();
             for(Pasajeros pasajeros1:pasajeros){
-                if(pasajeros1.getNombre().equals(nombrePasajero)){
+                if(pasajeros1.getDni()==dni){
+                    System.out.println(pasajeros1.imprimir());
                     pasajeros.remove(pasajeros1);
+                    System.out.println("-------------------");
                     System.out.println("Pasajero Eliminado");
                 }
             }
